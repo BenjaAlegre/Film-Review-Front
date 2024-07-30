@@ -46,7 +46,7 @@ const Film = () =>
         <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore}/>
         <div>
         <NewReview film={film.id}/>
-        {film.reviews.length > 0 && <FeaturedReview title={film.reviews[0].title} description={film.reviews[0].description} score={film.reviews[0].score} user={film.reviews[0].user.name}/>}
+        {film.reviews.length > 0 && <FeaturedReview title={film.reviews[0].title} description={film.reviews[0].description} score={film.reviews[0].score} user={film.reviews[0].user.name} filmID={film.id}/>}
         </div>
         </>
     )

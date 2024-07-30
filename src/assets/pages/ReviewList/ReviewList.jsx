@@ -1,59 +1,41 @@
-import { API_PATH_REVIEWS } from '../../common/constants/api_path.constants';
+import { useLocation } from 'react-router-dom';
+import { API_PATH_FILMS } from '../../common/constants/api_path.constants';
+import { getOneData } from '../../common/utils/getData';
 import './ReviewList.css';
-
-const reviews = [
-  {
-    title: "Great Product",
-    description: "I really enjoyed using this product. It exceeded my expectations in every way.",
-    rating: 5
-  },
-  {
-    title: "Good Value",
-    description: "This product offers good value for the price. I would recommend it to others.",
-    rating: 4
-  },
-  {
-    title: "Average Experience",
-    description: "The product is okay, but it did not meet all my expectations.",
-    rating: 3
-  }, {
-    title: "Great Product",
-    description: "I really enjoyed using this product. It exceeded my expectations in every way.",
-    rating: 5
-  },
-  {
-    title: "Good Value",
-    description: "This product offers good value for the price. I would recommend it to others.",
-    rating: 4
-  },
-  {
-    title: "Average Experience",
-    description: "The product is okay, but it did not meet all my expectations.",
-    rating: 3
-  },
-];
+import { useEffect, useState } from 'react';
 
 const ReviewList = () => {
 
-  let [reviews, setReviews] = useState([])
+  const { state } = useLocation();
+
+  console.log({ state });
+  console.log(state);
+  const filmID = state;
+  console.log(filmID);
+
+  let [film, setFilm] = useState([])
 
   useEffect(() => {
-    getReviews()
+    getFilm()
   }, [])
 
-  const getReviews = async () => {
-    const reviewData = await getData(API_PATH_REVIEWS)
-    setReviews(reviewData);
+  const getFilm = async () => {
+    const filmData = await getOneData(API_PATH_FILMS, filmID)
+    setFilm(filmData);
   }
 
+  if(!film || !film.reviews)
+  {
+      return <div>Loading...</div>
+  }
 
   return (
     <div className="review-list">
-      {reviews.map((review, index) => (
-        <div className="review" key={index}>
+      {film.reviews.map((review) => (  
+        <div className="review" key={review.id}>
           <h3 className="review-title">{review.title}</h3>
           <p className="review-description">{review.description}</p>
-          <div className="review-rating">Rating: {review.rating} / 5</div>
+          <div className="review-rating">Score: {review.score} / 5</div>
         </div>
       ))}
     </div>
