@@ -4,6 +4,7 @@ import Layout from './assets/components/Layout/Layout'
 import Login from './assets/pages/Login/Login'
 import Register from './assets/pages/Register/Register'
 import FilmList from './assets/pages/FilmList/FilmList'
+import ReviewList from './assets/pages/ReviewList/ReviewList'
 
 function App() {
   return(
@@ -13,6 +14,7 @@ function App() {
           <Route path="login" element={<Login/>}/>
           <Route path="register" element={<Register/>}/>
           <Route path="filmList" element={<FilmList/>}/>
+          <Route path="reviewList" element={<ReviewList/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

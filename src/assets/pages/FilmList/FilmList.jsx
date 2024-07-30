@@ -1,4 +1,4 @@
-import MiniFilm from "../../components/MiniFilm/MiniFilm";
+import MiniFilm from "./MiniFilm";
 
 const FilmList = () => (
     <div>

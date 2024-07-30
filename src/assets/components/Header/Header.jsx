@@ -1,5 +1,9 @@
+import NavBar from "../NavBar/NavBar.jsx";
+
 const Header = () =>(
-    <div><h1>film</h1></div>
+    <>
+    <NavBar/>
+    </>
 )
 
 export default Header;
