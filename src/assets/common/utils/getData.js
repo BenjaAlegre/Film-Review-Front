@@ -1,4 +1,4 @@
-export const getFilmData = async (API) => {
+export const getData = async (API) => {
 
     try {
         const resp = await fetch(API);
@@ -12,7 +12,7 @@ export const getFilmData = async (API) => {
     }
 }
 
-export const getOneFilmData = async (API, ID) => {
+export const getOneData = async (API, ID) => {
 
     try {
         const resp = await fetch(API + "/" + ID);
