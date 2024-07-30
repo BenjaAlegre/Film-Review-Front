@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_PATH_LOGIN } from "../../common/constants/api_path.constants";
 
 
 const Login = () => {
@@ -11,7 +12,7 @@ const Login = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-          const response = await fetch('http://localhost:3000/login', {
+          const response = await fetch(API_PATH_LOGIN, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -21,8 +22,9 @@ const Login = () => {
           const data = await response.json();
           if (response.ok) {
             console.log(data);
+            localStorage.setItem('userID', data.id);
             localStorage.setItem('token', data.token);
-            localStorage.setItem('rol', data.rol);
+            localStorage.setItem('role', data.role);
             navigate('/userlist');
           } else {
             console.log('Login failed: ' + data.message);
