@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MiniFilm from "./MiniFilm";
-import { getFilmData } from "../../common/utils/getFilmData";
+import { getData } from "../../common/utils/getData";
 import { API_PATH_FILMS } from "../../common/constants/api_path.constants";
 
 const FilmList = () => {
@@ -12,7 +12,7 @@ const FilmList = () => {
     }, [])
 
     const getFilms = async () => {
-        const filmData = await getFilmData(API_PATH_FILMS)
+        const filmData = await getData(API_PATH_FILMS)
         setFilms(filmData);
     }
 

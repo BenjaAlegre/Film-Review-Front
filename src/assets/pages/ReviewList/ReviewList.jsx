@@ -1,3 +1,4 @@
+import { API_PATH_REVIEWS } from '../../common/constants/api_path.constants';
 import './ReviewList.css';
 
 const reviews = [
@@ -15,7 +16,7 @@ const reviews = [
     title: "Average Experience",
     description: "The product is okay, but it did not meet all my expectations.",
     rating: 3
-  },{
+  }, {
     title: "Great Product",
     description: "I really enjoyed using this product. It exceeded my expectations in every way.",
     rating: 5
@@ -33,6 +34,19 @@ const reviews = [
 ];
 
 const ReviewList = () => {
+
+  let [reviews, setReviews] = useState([])
+
+  useEffect(() => {
+    getReviews()
+  }, [])
+
+  const getReviews = async () => {
+    const reviewData = await getData(API_PATH_REVIEWS)
+    setReviews(reviewData);
+  }
+
+
   return (
     <div className="review-list">
       {reviews.map((review, index) => (
