@@ -2,9 +2,9 @@ import { Outlet } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
-const Layout = () =>(
+const Layout = ({ isAuthenticated, handleLogout, children }) =>(
     <>
-        <Header/>
+        <Header  isAuthenticated={isAuthenticated} handleLogout={handleLogout} children={children}/>
         <Outlet/>
         <Footer/>
     </>

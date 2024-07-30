@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-const Login = () => {
+const Login = ({onLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -23,7 +23,9 @@ const Login = () => {
             console.log(data);
             localStorage.setItem('token', data.token);
             localStorage.setItem('rol', data.rol);
-            navigate('/userlist');
+            onLogin();
+
+            navigate('/');
           } else {
             console.log('Login failed: ' + data.message);
           }

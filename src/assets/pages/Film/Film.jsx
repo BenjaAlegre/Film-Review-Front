@@ -4,7 +4,7 @@ import DetailedFilm from "./DetailedFilm";
 import FeaturedReview from "./FeaturedReview";
 import NewReview from "./NewReview";
 
-const Film = () =>
+const Film = ( ) =>
 {
     const filmID = "b891397a-9582-43bd-92d8-ed36314e0aa3"
 
