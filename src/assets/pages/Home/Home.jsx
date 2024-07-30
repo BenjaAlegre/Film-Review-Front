@@ -1,5 +1,9 @@
+import FilmSlider from "./FilmSlider";
+
 const Home = () =>(
-    <div><h3>EL JOM</h3></div>
+ <FilmSlider></FilmSlider>
+
+
 )
 
 export default Home;
