@@ -6,7 +6,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role, setRole] = useState('');
+    const [role] = useState('a605ed6d-3096-4e45-8b77-f87f9e6f2de9');
     // const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Register = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            setRole('User');
+            
           const response = await fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {

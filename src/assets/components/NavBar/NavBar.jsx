@@ -1,8 +1,15 @@
 import { useState } from 'react';
 import './NavBar.css';
+import { useNavigate } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ( {isAuthenticated, handleLogout}) => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleClick = (path) => {
+    navigate(path);
+  };
+
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -10,24 +17,26 @@ const NavBar = () => {
 
   return (
     <nav className="navbar">
-      <div className="navbar-brand">BrandName</div>
+      <div className="navbar-brand">Peliculas</div>
       <div className={`navbar-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
         <div className="bar"></div>
         <div className="bar"></div>
         <div className="bar"></div>
       </div>
       <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
-        <a href="#home" className="navbar-item">Home</a>
-        <a href="#link" className="navbar-item">Link</a>
-        <div className="navbar-item dropdown">
-          <div className="dropdown-toggle">Dropdown</div>
-          <div className="dropdown-menu">
-            <a href="#action1" className="dropdown-item">Action</a>
-            <a href="#action2" className="dropdown-item">Another action</a>
-            <a href="#action3" className="dropdown-item">Something</a>
-            <a href="#action4" className="dropdown-item">Separated link</a>
-          </div>
-        </div>
+      <div className="navbar-item" onClick={() => handleClick('/')}>Home</div>
+
+        {isAuthenticated ? (
+          <>
+            <div className="navbar-item" onClick={() => handleClick('/profile')}>Profile</div>
+            <div className="navbar-item" onClick={handleLogout}>Logout</div>
+          </>
+        ) : (
+          <>
+            <div className="navbar-item" onClick={() => handleClick('/login')}>Sign In</div>
+            <div className="navbar-item" onClick={() => handleClick('/register')}>Register</div>
+          </>
+        )}
       </div>
     </nav>
   );

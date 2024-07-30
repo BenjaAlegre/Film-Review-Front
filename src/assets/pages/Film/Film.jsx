@@ -7,7 +7,7 @@ import { API_PATH_FILMS } from "../../common/constants/api_path.constants";
 import { getAverageReviewScore } from "../../common/utils/getAverageReviewScore";
 import { useLocation } from "react-router-dom";
 
-const Film = () =>
+const Film = ( ) =>
 {
     const { state } = useLocation();
 

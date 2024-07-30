@@ -6,19 +6,32 @@ import Register from './assets/pages/Register/Register'
 import FilmList from './assets/pages/FilmList/FilmList'
 import ReviewList from './assets/pages/ReviewList/ReviewList'
 import Film from './assets/pages/Film/Film'
+import Home from './assets/pages/Home/Home'
+import { useState } from 'react'
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  const handleLogin = () => {
+    setIsAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+  };
+
   return(
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route path="login" element={<Login/>}/>
-          <Route path="register" element={<Register/>}/>
-          <Route path="filmList" element={<FilmList/>}/>
-          <Route path="reviewList" element={<ReviewList/>}/>
-          <Route path="film" element={<Film/>}/>
-        </Route>
-      </Routes>
+      <Layout isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login onLogin={handleLogin} />} />
+          <Route path="register" element={<Register />} />
+          <Route path="filmList" element={<FilmList />} />
+          <Route path="reviewList" element={<ReviewList />} />
+          <Route path="film" element={<Film />} />
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }

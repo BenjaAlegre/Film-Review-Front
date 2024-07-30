@@ -1,8 +1,9 @@
 import NavBar from "../NavBar/NavBar.jsx";
 
-const Header = () =>(
+const Header = ({ isAuthenticated, handleLogout, children }) =>(
     <>
-    <NavBar/>
+    <NavBar  isAuthenticated={isAuthenticated} handleLogout={handleLogout}/>
+    <main> {children}</main>
     </>
 )
 

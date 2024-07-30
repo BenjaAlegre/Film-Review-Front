@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { API_PATH_LOGIN } from "../../common/constants/api_path.constants";
 
 
-const Login = () => {
+const Login = ({onLogin}) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -25,7 +25,10 @@ const Login = () => {
             localStorage.setItem('userID', data.id);
             localStorage.setItem('token', data.token);
             localStorage.setItem('role', data.role);
-            navigate('/userlist');
+            onLogin();
+
+            navigate('/');
+ 
           } else {
             console.log('Login failed: ' + data.message);
           }
