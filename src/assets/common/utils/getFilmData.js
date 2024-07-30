@@ -18,6 +18,8 @@ export const getOneFilmData = async (API, ID) => {
         const resp = await fetch(API + "/" + ID);
 
         const data = await resp.json();
+    
+        console.log(data);
 
         return data;
     }
