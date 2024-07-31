@@ -5,10 +5,9 @@
 
     const NewReview = ({film}) => {
 
-        const user = localStorage.getItem('userID')
         const { currentUser } = useContext(CurrentUserContext);
 
-        console.log(currentUser);
+        const userID = currentUser.id;
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -27,7 +26,7 @@
                         'Content-Type': 'application/json'
                         // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                     },
-                    body: JSON.stringify({ title, description, score, film, user }),
+                    body: JSON.stringify({ title, description, score, film, userID }),
                 });
 
                 console.log(response);
@@ -36,7 +35,6 @@
                     throw new Error("Datos invalidos");
                 }
 
-                // navigate("/users");
             } catch (error) {
                 console.error(error);
             }

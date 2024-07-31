@@ -24,7 +24,6 @@ const Login = ({ onLogin }) => {
       const data = await response.json();
       if (response.ok) {
         console.log(data);
-        localStorage.setItem('userID', data.id);
         localStorage.setItem('token', data.token);
         localStorage.setItem('role', data.role);
 
