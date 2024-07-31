@@ -1,28 +1,24 @@
-import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
-import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
+import { API_PATH_COMMENTS } from "../../common/constants/api_path.constants";
 
-const NewReview = ({film}) => {
-
+const NewComment = ({review}) =>
+{
     const user = localStorage.getItem('userID')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const formData = new FormData(e.target);
-        const title = formData.get('title');
         const description = formData.get('description');
-        const stringScore = formData.get('score');
-
-        const score = parseInt(stringScore);
+        const title = "title"; //hasta cambiar el entity y dto de comment.
 
         try {
-            const response = await fetch(API_PATH_REVIEWS, {
+            const response = await fetch(API_PATH_COMMENTS, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                     // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify({ title, description, score, film, user }),
+                body: JSON.stringify({ title, description, review, user }),
             });
 
             console.log(response);
@@ -39,18 +35,14 @@ const NewReview = ({film}) => {
 
     return (
         <>
-            <h3>Leave your review!</h3>
+            <h3>Leave a comment!</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Review Title</label>
-                <input type="text" name="title" />
-                <label htmlFor="description">Review Content</label>
+                <label htmlFor="description">Comment Content</label>
                 <input type="text" name="description" />
-                <label htmlFor="score">Score</label>
-                <input type="number" name="score" min={1} max={MAX_REVIEW_SCORE}/>
                 <button>submit!</button>
             </form>
         </>
     )
 }
 
-export default NewReview;
+export default NewComment;
