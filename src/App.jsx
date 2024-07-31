@@ -9,6 +9,7 @@ import Film from './assets/pages/Film/Film'
 import Home from './assets/pages/Home/Home'
 import { createContext, useState } from 'react'
 import Review from './assets/pages/Review/Review'
+import Profile from './assets/pages/Profile/Profile'
 
 export const CurrentUserContext = createContext({
   id: null,
@@ -36,6 +37,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="login" element={<Login />} />
+            <Route path="profile" element={<Profile />} />
             <Route path="register" element={<Register />} />
             <Route path="filmList" element={<FilmList />} />
             <Route path="reviewList" element={<ReviewList />} />

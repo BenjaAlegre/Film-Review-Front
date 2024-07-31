@@ -1,13 +1,10 @@
-import { useContext } from "react";
-import {  } from "../../../Context";
-import { CurrentUserContext } from "../../../App";
-
-const UserDetails = () => {
-    const { currentUser, setCurrentUser } = useContext(CurrentUserContext);
+const UserDetails = ({name, email, role}) => {
 
     return(
     <div>
-        <p>{currentUser.name}</p>
+        <p>{name}</p>
+        <p>{email}</p>
+        <p>{role}</p>
     </div>
 )}
 

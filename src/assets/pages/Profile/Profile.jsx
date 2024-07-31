@@ -1,25 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import UserDetails from "./UserDetails";
 import UserReviewList from "./UserReviewList";
-import { getOneData } from "../../common/utils/getData";
-import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
+import { CurrentUserContext } from "../../../App";
 
 const Profile = () => {
-    let [reviews, setReview] = useState([])
-
-    useEffect(() => {
-        getReview()
-    }, [])
-
-    const getReview = async () => {
-        const reviewData = await getOneData(API_PATH_REVIEWS, userID)
-        setReview(reviewData);
-    }
+    const {currentUser} = useContext(CurrentUserContext)
 
     return (
         <div>
-            <UserDetails />
-            <UserReviewList />
+            <UserDetails name={currentUser.name} email={currentUser.email} role={currentUser.role}/>
+            <UserReviewList userID={currentUser.id}/>
         </div>
     )
 }
