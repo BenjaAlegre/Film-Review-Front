@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './NavBar.css';
 import { useNavigate } from 'react-router-dom';
+import { CurrentUserContext } from '../../../App';
 
-const NavBar = ( {isAuthenticated, handleLogout}) => {
+const NavBar = ( ) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
+  const {currentUser, setCurrentUser} = useContext(CurrentUserContext)
 
   const handleClick = (path) => {
     navigate(path);
   };
+
+  const handleLogout = () => {
+    setCurrentUser({
+      isLogged: false
+    })
+    navigate('')
+    };
 
 
   const toggleMenu = () => {
@@ -27,7 +36,7 @@ const NavBar = ( {isAuthenticated, handleLogout}) => {
       <div className="navbar-item" onClick={() => handleClick('/')}>Home</div>
       <div className="navbar-item" onClick={() => handleClick('/filmList')}>Film List</div>
 
-        {isAuthenticated ? (
+        {currentUser.isLogged ? (
           <>
             <div className="navbar-item" onClick={() => handleClick('/profile')}>Profile</div>
             <div className="navbar-item" onClick={handleLogout}>Logout</div>

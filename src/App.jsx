@@ -14,29 +14,28 @@ export const CurrentUserContext = createContext({
   id: null,
   name: '',
   email: '',
-  role: null
+  role: null,
+  isLogged: false
 });
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const [currentUser, setCurrentUser] = useState({});
 
-  const handleLogin = () => {
-    setIsAuthenticated(true);
-  };
 
   const handleLogout = () => {
-    setIsAuthenticated(false);
-  };
+    setCurrentUser({
+      isLogged: false
+    })
+    };
 
   return (
     <CurrentUserContext.Provider value={{ currentUser, setCurrentUser }}>
       <BrowserRouter>
-        <Layout isAuthenticated={isAuthenticated} handleLogout={handleLogout}>
+        <Layout handleLogout={handleLogout}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="login" element={<Login onLogin={handleLogin} />} />
+            <Route path="login" element={<Login />} />
             <Route path="register" element={<Register />} />
             <Route path="filmList" element={<FilmList />} />
             <Route path="reviewList" element={<ReviewList />} />

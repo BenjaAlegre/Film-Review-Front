@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { API_PATH_LOGIN } from "../../common/constants/api_path.constants";
 import { CurrentUserContext } from "../../../App";
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -31,10 +31,9 @@ const Login = ({ onLogin }) => {
           id: data.id,
           name: data.name,
           email: data.email,
-          role: data.role
+          role: data.role,
+          isLogged: true
         });
-
-        onLogin();
 
         navigate('/');
 
