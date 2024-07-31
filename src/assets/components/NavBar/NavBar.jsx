@@ -25,6 +25,7 @@ const NavBar = ( {isAuthenticated, handleLogout}) => {
       </div>
       <div className={`navbar-menu ${isOpen ? 'open' : ''}`}>
       <div className="navbar-item" onClick={() => handleClick('/')}>Home</div>
+      <div className="navbar-item" onClick={() => handleClick('/filmList')}>Film List</div>
 
         {isAuthenticated ? (
           <>
