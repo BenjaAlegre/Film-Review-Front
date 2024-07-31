@@ -10,6 +10,7 @@ import Home from './assets/pages/Home/Home'
 import { createContext, useState } from 'react'
 import Review from './assets/pages/Review/Review'
 import Profile from './assets/pages/Profile/Profile'
+import EditReview from './assets/pages/EditReview/EditReview'
 
 export const CurrentUserContext = createContext({
   id: null,
@@ -42,6 +43,7 @@ function App() {
             <Route path="filmList" element={<FilmList />} />
             <Route path="reviewList" element={<ReviewList />} />
             <Route path="review" element={<Review />} />
+            <Route path="editReview" element={<EditReview />} />
             <Route path="film" element={<Film />} />
           </Routes>
         </Layout>
