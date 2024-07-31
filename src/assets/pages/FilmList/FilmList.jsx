@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import MiniFilm from "./MiniFilm";
 import { getData } from "../../common/utils/getData";
 import { API_PATH_FILMS } from "../../common/constants/api_path.constants";
+import MiniFilm from "../../components/MiniFilm/MiniFilm";
 
 const FilmList = () => {
 

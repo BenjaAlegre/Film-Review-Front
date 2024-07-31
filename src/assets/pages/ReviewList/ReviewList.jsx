@@ -3,6 +3,8 @@ import { API_PATH_FILMS } from '../../common/constants/api_path.constants';
 import { getOneData } from '../../common/utils/getData';
 import './ReviewList.css';
 import { useEffect, useState } from 'react';
+import MiniFilm from '../../components/MiniFilm/MiniFilm';
+import MiniReview from './MiniReview';
 
 const ReviewList = () => {
 
@@ -24,21 +26,25 @@ const ReviewList = () => {
     setFilm(filmData);
   }
 
-  if(!film || !film.reviews)
-  {
-      return <div>Loading...</div>
+  if (!film || !film.reviews) {
+    return <div>Loading...</div>
   }
 
   return (
-    <div className="review-list">
-      {film.reviews.map((review) => (  
-        <div className="review" key={review.id}>
-          <h3 className="review-title">{review.title}</h3>
-          <p className="review-description">{review.description}</p>
-          <div className="review-rating">Score: {review.score} / 5</div>
-        </div>
-      ))}
-    </div>
+    <>
+      <MiniFilm title={film.title} poster={film.poster} filmID={film.id} />
+      <div className="review-list">
+        {film.reviews.map((review) => ( //Aca hacer una clase como la que hice en la lista de films, una minireview o algo asi. Esa va a llevar el evento handleclick que nos va a llevar a la vista de Review, padre de detailedReview
+          <MiniReview
+            key={review.id}
+            id={review.id}
+            title={review.title}
+            description={review.description}
+            score={review.score}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 
