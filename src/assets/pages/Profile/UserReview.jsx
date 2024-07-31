@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import MiniReview from "../ReviewList/MiniReview";
+import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
 
 const UserReview = ({ id, title, description, score, username }) => {
 
@@ -14,6 +15,31 @@ const UserReview = ({ id, title, description, score, username }) => {
         })
     }
 
+    const handleDelete = async (e) =>
+        {
+            // e.preventDefault();
+    
+            try {
+                const response = await fetch(`${API_PATH_REVIEWS}/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    },
+                    body: JSON.stringify({ id }),
+                });
+    
+                console.log(response);
+    
+                if (!response.ok) {
+                    throw new Error("Datos invalidos");
+                }
+    
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
     return (
         <>
             <MiniReview
@@ -25,7 +51,7 @@ const UserReview = ({ id, title, description, score, username }) => {
                 score={score} />
 
             <button onClick={handleEdit}>Edit</button>
-            <button>Delete</button>
+            <button onClick={handleDelete}>Delete</button>
         </>
     )
 }

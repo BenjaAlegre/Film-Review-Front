@@ -7,7 +7,7 @@
 
         const { currentUser } = useContext(CurrentUserContext);
 
-        const userID = currentUser.id;
+        const user = currentUser.id;
 
         const handleSubmit = async (e) => {
             e.preventDefault();
@@ -26,7 +26,7 @@
                         'Content-Type': 'application/json'
                         // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                     },
-                    body: JSON.stringify({ title, description, score, film, userID }),
+                    body: JSON.stringify({ title, description, score, film, user }),
                 });
 
                 console.log(response);
