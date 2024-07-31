@@ -39,6 +39,7 @@ const ReviewList = () => {
             key={review.id}
             id={review.id}
             title={review.title}
+            username={review.user.name}
             description={review.description}
             score={review.score}
           />

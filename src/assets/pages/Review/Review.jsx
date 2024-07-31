@@ -31,7 +31,7 @@ const Review = () => {
             <DetailedReview reviewTitle={review.title} reviewDescription={review.description} score={review.score} reviewUser={review.user.name} filmTitle={review.film.title} filmPoster={review.film.poster}/>
             <div>
                 <NewComment review={review.id}/>
-                {review?.comments?.length &&  <CommentList reviewID={review.id}/>}
+                {review?.comments?.length && <CommentList reviewID={review.id}/>}
             </div>
         </>
     )

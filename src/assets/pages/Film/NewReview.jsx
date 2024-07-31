@@ -1,4 +1,5 @@
 import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
+import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
 
 const NewReview = ({film}) => {
 
@@ -45,7 +46,7 @@ const NewReview = ({film}) => {
                 <label htmlFor="description">Review Content</label>
                 <input type="text" name="description" />
                 <label htmlFor="score">Score</label>
-                <input type="number" name="score" />
+                <input type="number" name="score" min={1} max={MAX_REVIEW_SCORE}/>
                 <button>submit!</button>
             </form>
         </>
