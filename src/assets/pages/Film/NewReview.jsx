@@ -3,7 +3,7 @@
     import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
     import { CurrentUserContext } from "../../../App";
 
-    const NewReview = ({film}) => {
+    const NewReview = ({film, addReview}) => {
 
         const { currentUser } = useContext(CurrentUserContext);
 
@@ -34,6 +34,8 @@
                 if (!response.ok) {
                     throw new Error("Datos invalidos");
                 }
+
+                addReview()
 
             } catch (error) {
                 console.error(error);

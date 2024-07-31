@@ -13,21 +13,27 @@ const Film = () => {
 
     const filmID = state;
 
-    let [film, setFilm] = useState([])
+    let [film, setFilm] = useState(null)
     let [averageScore, setAverageScore] = useState(0);
 
     useEffect(() => {
+        if(!film)
         getFilm()
-    }, [])
+    }, [film])
 
     const getFilm = async () => {
         const filmData = await getOneData(API_PATH_FILMS, filmID)
         setFilm(filmData);
+        console.log(filmData);
         if (filmData.reviews) {
             const avg = getAverageReviewScore(filmData.reviews)
             setAverageScore(avg);
         }
     }
+
+    const handleReviewAdded = () => {
+        getFilm();
+    };
 
     if (!film) {
         return <div>Loading...</div>
@@ -37,7 +43,7 @@ const Film = () => {
         <>
             <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} />
             <div>
-                <NewReview film={film.id} />
+                <NewReview film={film.id} addReview={handleReviewAdded} />
                 {film?.reviews?.length && <FeaturedReview title={film.reviews[0].title} description={film.reviews[0].description} score={film.reviews[0].score} user={film.reviews[0].user.name} filmID={film.id} />}
             </div>
         </>
