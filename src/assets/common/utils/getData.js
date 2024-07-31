@@ -27,3 +27,4 @@ export const getOneData = async (API, ID) => {
         console.log(error);
     }
 }
+
