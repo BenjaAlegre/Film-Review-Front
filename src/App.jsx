@@ -19,7 +19,6 @@ export const CurrentUserContext = createContext({
   name: '',
   email: '',
   role: null,
-  isLogged: false
 });
 
 function App() {
