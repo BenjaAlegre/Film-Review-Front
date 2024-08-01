@@ -13,6 +13,7 @@ import EditReview from './assets/pages/EditReview/EditReview'
 import AdminPanel from './assets/pages/adminPanel/AdminPanel'
 import Unauthorized from './assets/pages/Unauthorized/Unauthorized'
 import RoleAccess from './assets/common/utils/RoleAccess'
+import NotFound from './assets/pages/NotFound/NotFound'
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
             <Route path="adminPanel" element={<AdminPanel />} />
           </Route>
           <Route path="unauthorized" element={<Unauthorized />} />
+          <Route path="*" element={<NotFound />} />
 
         </Routes>
       </Layout>
