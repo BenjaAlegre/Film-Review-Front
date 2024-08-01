@@ -39,7 +39,7 @@ const NewComment = ({review, onNewComment}) =>
         <>
             <h3>Leave a comment!</h3>
             <form onSubmit={handleSubmit}>
-                <label htmlFor="description">Comment Content</label>
+                <label htmlFor="description"></label>
                 <input type="text" name="description" />
                 <button>submit!</button>
             </form>

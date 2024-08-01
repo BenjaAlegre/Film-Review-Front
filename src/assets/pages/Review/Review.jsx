@@ -7,6 +7,8 @@ import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
 import NewComment from "./NewComment";
 
 const Review = () => {
+    const userData = JSON.parse(sessionStorage.getItem('user'));
+
     const { state } = useLocation();
 
     const reviewID = state;
@@ -36,7 +38,7 @@ const Review = () => {
         <>
             <DetailedReview reviewTitle={review.title} reviewDescription={review.description} score={review.score} reviewUser={review.user.name} filmTitle={review.film.title} filmPoster={review.film.poster}/>
             <div>
-                <NewComment review={review.id} onNewComment={handleCommentChange}/>
+                {userData?.isLogged && <NewComment review={review.id} onNewComment={handleCommentChange}/>}
                 {review?.comments?.length > 0 && <CommentList review={review}/>}
             </div>
         </>
