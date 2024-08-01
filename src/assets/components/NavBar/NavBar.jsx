@@ -95,7 +95,7 @@ const NavBar = () => {
                 Film List
               </a>
             </li>
-            {role == "Admin" ? (
+            {role?.toLowerCase() == "Admin".toLowerCase() ? (
             <li>
               <a
                 href="#"

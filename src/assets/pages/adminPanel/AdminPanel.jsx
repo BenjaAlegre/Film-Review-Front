@@ -46,19 +46,22 @@ const AdminPanel = () =>
                     <AdminUserList
                     id={user.id}
                     name={user.name}
+                    role={user.role.description}
                     email={user.email}
                     createdAt={user.createdAt}
-                    deletedAt={user.deletedAt}/>
+                    deletedAt={user.deletedAt}
+                    onUserDelete={handleDataChange}/>
                 ))
             ) : (
                 reviews.map((review) => (
-                    <AdminUserList
+                    <AdminReviewList
                     id={review.id}
                     title={review.title}
                     description={review.description}
                     score={review.score}
                     createdAt={review.createdAt}
-                    deletedAt={review.deletedAt}/>
+                    deletedAt={review.deletedAt}
+                    onReviewDelete={handleDataChange}/>
                 ))
             )}
         </>
