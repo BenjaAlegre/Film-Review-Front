@@ -43,9 +43,6 @@ const Login = () => {
     } catch (error) {
       console.log('Login failed: ' + error.message);
     }
-
-    navigate('/');
-
   };
 
   return (
