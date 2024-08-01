@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import MiniReview from "../ReviewList/MiniReview";
 import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
 
-const UserReview = ({ id, title, description, score, username }) => {
+const UserReview = ({ id, title, description, score, username, filmTitle, filmRelease, onReviewDelete }) => {
 
     const navigate = useNavigate();
 
@@ -17,7 +17,7 @@ const UserReview = ({ id, title, description, score, username }) => {
 
     const handleDelete = async (e) =>
         {
-            // e.preventDefault();
+            e.preventDefault();
     
             try {
                 const response = await fetch(`${API_PATH_REVIEWS}/${id}`, {
@@ -34,6 +34,8 @@ const UserReview = ({ id, title, description, score, username }) => {
                 if (!response.ok) {
                     throw new Error("Datos invalidos");
                 }
+
+                onReviewDelete();
     
             } catch (error) {
                 console.error(error);
@@ -42,6 +44,7 @@ const UserReview = ({ id, title, description, score, username }) => {
 
     return (
         <>
+            {/* <h3>{filmTitle}</h3> */}
             <MiniReview
                 key={id}
                 id={id}

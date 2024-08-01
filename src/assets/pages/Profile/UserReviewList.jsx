@@ -8,12 +8,19 @@ const UserReviewList = ({ userID }) => {
     let [reviews, setReview] = useState([])
 
     useEffect(() => {
+        if(reviews.length <= 0)
         getReview()
-    }, [])
+    }, [reviews])
 
     const getReview = async () => {
         const reviewData = await getOneData(API_PATH_USERREVIEWS, userID)
         setReview(reviewData);
+        console.log(reviewData);
+    }
+
+    const handleReviewChange = () =>
+    {
+        getReview();
     }
 
     return (
@@ -27,7 +34,10 @@ const UserReviewList = ({ userID }) => {
                         title={review.title}
                         username={review.user.name}
                         description={review.description}
-                        score={review.score} />
+                        score={review.score}
+                        filmTitle={review.film.title}
+                        filmRelease={review.film.released}
+                        onReviewDelete={handleReviewChange} />
 
                 ))}
             </div>
