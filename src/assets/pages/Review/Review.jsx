@@ -11,15 +11,21 @@ const Review = () => {
 
     const reviewID = state;
     console.log(reviewID);
-    let [review, setReview] = useState([])
+    let [review, setReview] = useState(null)
 
     useEffect(() => {
-        getFilm()
-    }, [])
+        if(!review)
+        getReview()
+    }, [review])
 
-    const getFilm = async () => {
+    const getReview = async () => {
         const reviewData = await getOneData(API_PATH_REVIEWS, reviewID)
         setReview(reviewData);
+    }
+
+    const handleCommentChange = () =>
+    {
+        getReview();
     }
 
     if (!review || !review.user) {
@@ -30,8 +36,8 @@ const Review = () => {
         <>
             <DetailedReview reviewTitle={review.title} reviewDescription={review.description} score={review.score} reviewUser={review.user.name} filmTitle={review.film.title} filmPoster={review.film.poster}/>
             <div>
-                <NewComment review={review.id}/>
-                {review?.comments?.length && <CommentList reviewID={review.id}/>}
+                <NewComment review={review.id} onNewComment={handleCommentChange}/>
+                {review?.comments?.length > 0 && <CommentList review={review}/>}
             </div>
         </>
     )
