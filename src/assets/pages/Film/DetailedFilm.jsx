@@ -5,7 +5,7 @@ const DetailedFilm = ({title, description, poster, avgScore}) => (
         <img src={POSTER_PATH + poster} alt={title} />
         <h2>{title}</h2>
         <p>{description}</p>
-        <p>{avgScore}</p>
+        {avgScore != 0 &&<p>{avgScore}</p>}
 
     </div>
 )

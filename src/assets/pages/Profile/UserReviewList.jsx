@@ -5,22 +5,26 @@ import { API_PATH_USERREVIEWS } from "../../common/constants/api_path.constants"
 import UserReview from "./UserReview"
 
 const UserReviewList = ({ userID }) => {
-    let [reviews, setReview] = useState([])
+    let [reviews, setReview] = useState(null)
 
     useEffect(() => {
-        if(reviews.length <= 0)
+        if(!reviews)
         getReview()
     }, [reviews])
 
     const getReview = async () => {
         const reviewData = await getOneData(API_PATH_USERREVIEWS, userID)
         setReview(reviewData);
-        console.log(reviewData);
     }
 
     const handleReviewChange = () =>
     {
         getReview();
+    }
+
+    if(!reviews)
+    {
+        return <div>Loading...</div>
     }
 
     return (

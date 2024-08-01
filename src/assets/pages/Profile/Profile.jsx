@@ -1,6 +1,5 @@
 import UserDetails from "./UserDetails";
 import UserReviewList from "./UserReviewList";
-import UserList from "./UserList";
 
 const Profile = () => {
     const userData = JSON.parse(sessionStorage.getItem('user'));
@@ -10,9 +9,6 @@ const Profile = () => {
         <div>
             <UserDetails name={userData.name} email={userData.email} role={userData.role} />
             <UserReviewList userID={userData.id} />
-            {userData.role == "admin" && (
-                <UserList/>
-            )}
         </div>
     )
 }
