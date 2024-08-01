@@ -47,7 +47,7 @@ const Film = () => {
             <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} />
             <div>
                 {userData?.isLogged && <NewReview film={film.id} addReview={handleReviewAdded} />}
-                {film?.reviews?.length > 0 && <FeaturedReview reviewID={film.reviews[lastReviewIndex].id} title={film.reviews[lastReviewIndex].title} description={film.reviews[lastReviewIndex].description} score={film.reviews[lastReviewIndex].score} user={film.reviews[lastReviewIndex].user.name} filmID={film.id} />}
+                {film?.reviews?.length > 0 && <FeaturedReview reviewID={film.reviews[lastReviewIndex].id} title={film.reviews[lastReviewIndex].title} description={film.reviews[lastReviewIndex].description} score={film.reviews[lastReviewIndex].score} user={film.reviews[lastReviewIndex].user?.name || 'Deleted user'} filmID={film.id} />}
             </div>
         </>
     )
