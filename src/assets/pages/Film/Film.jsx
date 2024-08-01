@@ -39,12 +39,13 @@ const Film = () => {
         return <div>Loading...</div>
     }
 
+    const lastReviewIndex = film.reviews.length - 1;
     return (
         <>
             <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} />
             <div>
                 <NewReview film={film.id} addReview={handleReviewAdded} />
-                {film?.reviews?.length && <FeaturedReview title={film.reviews[0].title} description={film.reviews[0].description} score={film.reviews[0].score} user={film.reviews[0].user.name} filmID={film.id} />}
+                {film?.reviews?.length > 0 && <FeaturedReview reviewID={film.reviews[lastReviewIndex].id} title={film.reviews[lastReviewIndex].title} description={film.reviews[lastReviewIndex].description} score={film.reviews[lastReviewIndex].score} user={film.reviews[lastReviewIndex].user.name} filmID={film.id} />}
             </div>
         </>
     )

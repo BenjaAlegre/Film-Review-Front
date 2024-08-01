@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
+import MiniReview from "../ReviewList/MiniReview";
 
-const FeaturedReview = ({ title, description, score, user, filmID }) => {
+const FeaturedReview = ({ reviewID, title, description, score, user, filmID }) => {
 
     const navigate = useNavigate();
 
@@ -16,14 +17,14 @@ const FeaturedReview = ({ title, description, score, user, filmID }) => {
 
     return (
         <>
-            <div>
-                <h3>{title}</h3>
-                <p>{user}</p>
-                <p>{score}</p>
-            </div>
-            <div>
-                <p>{description}</p>
-            </div>
+            <MiniReview
+            key={reviewID}
+            id={reviewID}
+            title={title}
+            description={description}
+            score={score}
+            username={user} />
+
             <button onClick={handleClick}>See all reviews</button>
         </>
     )

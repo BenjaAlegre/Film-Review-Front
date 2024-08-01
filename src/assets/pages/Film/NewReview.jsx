@@ -1,13 +1,11 @@
-    import { useContext } from "react";
-    import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
+    
+import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
     import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
-    import { CurrentUserContext } from "../../../App";
 
     const NewReview = ({film, addReview}) => {
 
-        const { currentUser } = useContext(CurrentUserContext);
-
-        const user = currentUser.id;
+        const userData = JSON.parse(sessionStorage.getItem('user')); 
+        const user = userData.id;
 
         const handleSubmit = async (e) => {
             e.preventDefault();

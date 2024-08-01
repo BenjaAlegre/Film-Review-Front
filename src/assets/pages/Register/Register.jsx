@@ -28,7 +28,6 @@ const Register = () => {
           if (response.ok) {
             console.log(data);
             localStorage.setItem('token', data.token);
-            localStorage.setItem('rol', data.rol);
             navigate('/userlist');
           } else {
             console.log('Login failed ');

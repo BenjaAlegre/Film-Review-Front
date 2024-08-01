@@ -1,15 +1,11 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_PATH_LOGIN } from "../../common/constants/api_path.constants";
-import { CurrentUserContext } from "../../../App";
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const context = useContext(CurrentUserContext);
-
-  const { setCurrentUser } = context;
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -25,17 +21,21 @@ const Login = () => {
       if (response.ok) {
         console.log(data);
         sessionStorage.setItem('token', data.token);
-        sessionStorage.setItem('role', data.role);
-        sessionStorage.setItem('isLogged', true);
-        setCurrentUser({
+
+        const userData = 
+        {
           id: data.id,
           name: data.name,
           email: data.email,
           role: data.role,
-        });
+          isLogged: true
+        }
+
+        let userString = JSON.stringify(userData);
+
+        sessionStorage.setItem('user', userString);
 
         navigate('/');
-
 
       } else {
         console.log('Login failed: ' + data.message);

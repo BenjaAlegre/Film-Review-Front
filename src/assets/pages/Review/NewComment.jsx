@@ -1,12 +1,9 @@
-import { useContext } from "react";
 import { API_PATH_COMMENTS } from "../../common/constants/api_path.constants";
-import { CurrentUserContext } from "../../../App";
 
-const NewComment = ({review}) =>
+const NewComment = ({review, onNewComment}) =>
 {
-    const { currentUser } = useContext(CurrentUserContext);
-
-    const userID = currentUser.id;
+    const userData = JSON.parse(sessionStorage.getItem('user'))
+    const user = userData.id;
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -22,7 +19,7 @@ const NewComment = ({review}) =>
                     'Content-Type': 'application/json'
                     // 'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
-                body: JSON.stringify({ title, description, review, userID }),
+                body: JSON.stringify({ title, description, review, user }),
             });
 
             console.log(response);
@@ -31,7 +28,8 @@ const NewComment = ({review}) =>
                 throw new Error("Datos invalidos");
             }
 
-            // navigate("/users");
+            onNewComment();
+
         } catch (error) {
             console.error(error);
         }

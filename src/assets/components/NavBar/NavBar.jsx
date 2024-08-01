@@ -1,21 +1,19 @@
-import { useContext, useState } from 'react';
+import { useState } from 'react';
 import './NavBar.css';
 import { useNavigate } from 'react-router-dom';
-import { CurrentUserContext } from '../../../App';
 
 const NavBar = ( ) => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate();
-  const {currentUser, setCurrentUser} = useContext(CurrentUserContext)
+
+  const userData = JSON.parse(sessionStorage.getItem('user'));
+  const isLogged = userData?.isLogged;
 
   const handleClick = (path) => {
     navigate(path);
   };
 
   const handleLogout = () => {
-    setCurrentUser({
-      isLogged: false
-    })
     sessionStorage.clear();
     navigate('')
     };
@@ -37,7 +35,7 @@ const NavBar = ( ) => {
       <div className="navbar-item" onClick={() => handleClick('/')}>Home</div>
       <div className="navbar-item" onClick={() => handleClick('/filmList')}>Film List</div>
 
-        {sessionStorage.getItem('isLogged') ? (
+        {isLogged ? (
           <>
             <div className="navbar-item" onClick={() => handleClick('/profile')}>Profile</div>
             <div className="navbar-item" onClick={handleLogout}>Logout</div>
