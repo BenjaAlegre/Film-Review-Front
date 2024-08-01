@@ -44,6 +44,7 @@ const AdminPanel = () =>
             {hideUsers ? (
                 users.map((user) => (
                     <AdminUserList
+                    key={user.id}
                     id={user.id}
                     name={user.name}
                     role={user.role.description}
@@ -55,6 +56,7 @@ const AdminPanel = () =>
             ) : (
                 reviews.map((review) => (
                     <AdminReviewList
+                    key={review.id}
                     id={review.id}
                     title={review.title}
                     description={review.description}
