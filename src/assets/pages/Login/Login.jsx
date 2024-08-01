@@ -24,15 +24,14 @@ const Login = () => {
       const data = await response.json();
       if (response.ok) {
         console.log(data);
-        localStorage.setItem('token', data.token);
-        localStorage.setItem('role', data.role);
-
+        sessionStorage.setItem('token', data.token);
+        sessionStorage.setItem('role', data.role);
+        sessionStorage.setItem('isLogged', true);
         setCurrentUser({
           id: data.id,
           name: data.name,
           email: data.email,
           role: data.role,
-          isLogged: true
         });
 
         navigate('/');

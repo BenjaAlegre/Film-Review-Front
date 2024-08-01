@@ -16,6 +16,7 @@ const NavBar = ( ) => {
     setCurrentUser({
       isLogged: false
     })
+    sessionStorage.clear();
     navigate('')
     };
 
@@ -36,7 +37,7 @@ const NavBar = ( ) => {
       <div className="navbar-item" onClick={() => handleClick('/')}>Home</div>
       <div className="navbar-item" onClick={() => handleClick('/filmList')}>Film List</div>
 
-        {currentUser.isLogged ? (
+        {sessionStorage.getItem('isLogged') ? (
           <>
             <div className="navbar-item" onClick={() => handleClick('/profile')}>Profile</div>
             <div className="navbar-item" onClick={handleLogout}>Logout</div>

@@ -12,14 +12,12 @@ import Review from './assets/pages/Review/Review'
 import Profile from './assets/pages/Profile/Profile'
 import EditReview from './assets/pages/EditReview/EditReview'
 
-import SearchPage from './assets/pages/SearchFilm/SearchPage'
 
 export const CurrentUserContext = createContext({
   id: null,
   name: '',
   email: '',
   role: null,
-  isLogged: false
 });
 
 function App() {
@@ -47,7 +45,6 @@ function App() {
             <Route path="review" element={<Review />} />
             <Route path="editReview" element={<EditReview />} />
             <Route path="film" element={<Film />} />
-            <Route path="search" element={<SearchPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
