@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react"
 import { getOneData } from "../../common/utils/getData"
-import MiniReview from "../ReviewList/MiniReview"
 import { API_PATH_USERREVIEWS } from "../../common/constants/api_path.constants"
 import UserReview from "./UserReview"
 
