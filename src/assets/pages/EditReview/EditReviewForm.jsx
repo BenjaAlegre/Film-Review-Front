@@ -17,8 +17,8 @@ const EditReviewForm = ({reviewID, title, description, score }) => {
             const response = await fetch(`${API_PATH_REVIEWS}/${reviewID}`, {
                 method: 'PATCH',
                 headers: {
-                    'Content-Type': 'application/json'
-                    // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Content-Type': 'application/json',
+                    'Authorization': sessionStorage.getItem('token')
                 },
                 body: JSON.stringify({ title, description, score }),
             });

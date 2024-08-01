@@ -1,6 +1,6 @@
 import { API_PATH_RESTOREUSER, API_PATH_USERS } from "../../common/constants/api_path.constants";
 
-const AdminUserList = ({id, name, email, role, createdAt, deletedAt, onUserDelete }) => {
+const AdminUserList = ({id, name, email, role, createdAt, deletedAt, onUserDelete, adminRole }) => {
 
     console.log(deletedAt);
 
@@ -14,8 +14,9 @@ const AdminUserList = ({id, name, email, role, createdAt, deletedAt, onUserDelet
                 const response = await fetch(`${API_PATH_RESTOREUSER}/${id}`, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('token'),
+                        'role': adminRole
                     },
                     body: JSON.stringify({ id }),
                 });
@@ -37,8 +38,9 @@ const AdminUserList = ({id, name, email, role, createdAt, deletedAt, onUserDelet
                 const response = await fetch(`${API_PATH_USERS}/${id}`, {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('token'),
+                        'role': adminRole
                     },
                     body: JSON.stringify({ id }),
                 });

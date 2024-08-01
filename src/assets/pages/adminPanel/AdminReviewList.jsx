@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const AdminReviewList = ({ id, title, description, score, createdAt, deletedAt, onReviewDelete }) => {
 
     const navigate = useNavigate();
-    
+
     const handleEdit = (e) =>
         {
             e.preventDefault();
@@ -22,8 +22,8 @@ const AdminReviewList = ({ id, title, description, score, createdAt, deletedAt, 
                 const response = await fetch(`${API_PATH_REVIEWS}/${id}`, {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('token')
                     },
                     body: JSON.stringify({ id }),
                 });

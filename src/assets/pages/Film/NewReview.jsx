@@ -21,8 +21,8 @@ import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
                 const response = await fetch(API_PATH_REVIEWS, {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('token')
                     },
                     body: JSON.stringify({ title, description, score, film, user }),
                 });

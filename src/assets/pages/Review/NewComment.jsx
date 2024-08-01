@@ -10,14 +10,13 @@ const NewComment = ({review, onNewComment}) =>
 
         const formData = new FormData(e.target);
         const description = formData.get('description');
-        const title = "title"; //hasta cambiar el entity y dto de comment.
 
         try {
             const response = await fetch(API_PATH_COMMENTS, {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
-                    // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                    'Content-Type': 'application/json',
+                    'Authorization': sessionStorage.getItem('token'),
                 },
                 body: JSON.stringify({ title, description, review, user }),
             });

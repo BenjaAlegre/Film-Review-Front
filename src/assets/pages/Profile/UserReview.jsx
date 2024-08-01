@@ -23,8 +23,8 @@ const UserReview = ({ id, title, description, score, username, filmTitle, filmRe
                 const response = await fetch(`${API_PATH_REVIEWS}/${id}`, {
                     method: 'DELETE',
                     headers: {
-                        'Content-Type': 'application/json'
-                        // 'Authorization': `Bearer ${localStorage.getItem('token')}`
+                        'Content-Type': 'application/json',
+                        'Authorization': sessionStorage.getItem('token')
                     },
                     body: JSON.stringify({ id }),
                 });

@@ -11,6 +11,8 @@ import Review from './assets/pages/Review/Review'
 import Profile from './assets/pages/Profile/Profile'
 import EditReview from './assets/pages/EditReview/EditReview'
 import AdminPanel from './assets/pages/adminPanel/AdminPanel'
+import Unauthorized from './assets/pages/Unauthorized/Unauthorized'
+import RoleAccess from './assets/common/utils/RoleAccess'
 
 function App() {
 
@@ -27,7 +29,11 @@ function App() {
           <Route path="review" element={<Review />} />
           <Route path="editReview" element={<EditReview />} />
           <Route path="film" element={<Film />} />
-          <Route path="adminPanel" element={<AdminPanel />} />
+          <Route element={<RoleAccess />}>
+            <Route path="adminPanel" element={<AdminPanel />} />
+          </Route>
+          <Route path="unauthorized" element={<Unauthorized />} />
+
         </Routes>
       </Layout>
     </BrowserRouter>

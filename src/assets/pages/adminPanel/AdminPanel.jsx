@@ -10,6 +10,8 @@ const AdminPanel = () =>
     const [reviews, setReviews] = useState(null);
     const [hideUsers, setHideUsers] = useState(false);
 
+    const userData = JSON.parse(sessionStorage.getItem('user'));
+
     useEffect(() =>
     {
         if(!users && !reviews)
@@ -17,7 +19,7 @@ const AdminPanel = () =>
     }, [users, reviews])
 
     const getData = async () => {
-        const adminData = await getPromise(API_PATH_REVIEWS, API_PATH_DELETEDUSERS);
+        const adminData = await getPromise(API_PATH_REVIEWS, API_PATH_DELETEDUSERS, userData.role);
         setReviews(adminData[0]);
         setUsers(adminData[1]);
     }
@@ -51,7 +53,8 @@ const AdminPanel = () =>
                     email={user.email}
                     createdAt={user.createdAt}
                     deletedAt={user.deletedAt}
-                    onUserDelete={handleDataChange}/>
+                    onUserDelete={handleDataChange}
+                    adminRole={userData.role}/>
                 ))
             ) : (
                 reviews.map((review) => (

@@ -18,7 +18,7 @@ export const getOneData = async (API, ID) => {
         const resp = await fetch(API + "/" + ID);
 
         const data = await resp.json();
-    
+
         console.log(data);
 
         return data;
@@ -28,11 +28,18 @@ export const getOneData = async (API, ID) => {
     }
 }
 
-export const getPromise = async (API1, API2) =>
-{
+export const getPromise = async (API1, API2, role) => {
+
     try {
-        const API1Promise = await fetch(API1)
-        const Api2Promise = await fetch(API2);
+        const API1Promise = await fetch(API1);
+
+        const Api2Promise = await fetch(API2,{
+            method: 'GET',
+            headers: {
+            'Content-Type': 'application/json',
+            'Authorization': sessionStorage.getItem('token'),
+            'role': role
+        }})
 
         const promises = [API1Promise, Api2Promise];
         const promisesJson = promises.map(result => result.json());
