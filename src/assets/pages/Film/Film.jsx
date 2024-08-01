@@ -44,11 +44,25 @@ const Film = () => {
     const lastReviewIndex = film.reviews.length - 1;
     return (
         <>
+        <div className="max-w-6xl mx-auto p-4">
             <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} />
-            <div>
+            <div className="mt-8">
                 {userData?.isLogged && <NewReview film={film.id} addReview={handleReviewAdded} />}
-                {film?.reviews?.length > 0 && <FeaturedReview reviewID={film.reviews[lastReviewIndex].id} title={film.reviews[lastReviewIndex].title} description={film.reviews[lastReviewIndex].description} score={film.reviews[lastReviewIndex].score} user={film.reviews[lastReviewIndex].user?.name || 'Deleted user'} filmID={film.id} />}
+                {film?.reviews?.length > 0 && (
+                    <div className="mt-8">
+                        <h2 className="text-2xl font-semibold mb-4">Featured Review</h2>
+                        <FeaturedReview 
+                            reviewID={film.reviews[lastReviewIndex].id} 
+                            title={film.reviews[lastReviewIndex].title} 
+                            description={film.reviews[lastReviewIndex].description} 
+                            score={film.reviews[lastReviewIndex].score} 
+                            user={film.reviews[lastReviewIndex].user?.name || 'Deleted user'} 
+                            filmID={film.id} 
+                        />
+                    </div>
+                )}
             </div>
+        </div>
         </>
     )
 }

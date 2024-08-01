@@ -1,6 +1,12 @@
-const Unauthorized = () =>(
+import image from "../../../images/401-error.jpg"
+const Unauthorized = () =>{
 
-    <div>FUERA</div>
-)
+    return (
+        <>
+        |<img src={image} alt="una imagen de error" />
+        </>
+    )
+
+}
 
 export default Unauthorized;

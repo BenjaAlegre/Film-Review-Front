@@ -46,8 +46,9 @@ const FilmList= () => {
     };
 
     return (
-        <div className="max-w-lg mx-auto p-4">
-            <h2 className="text-2xl font-semibold mb-4">Search a Film</h2>
+        <>
+        <div className=" max-w-lg mx-auto p-2 m-1">
+            <h2 className="text-4xl font-semibold mb-4">Search a Film</h2>
             <form onSubmit={handleSearch} className="space-y-4">
                 <div className="flex flex-col">
                     <label htmlFor="searchType" className="text-sm font-medium text-gray-700 mb-1">Search by</label>
@@ -100,9 +101,10 @@ const FilmList= () => {
                     Submit
                 </button>
             </form>
-            <div>
-                <h1>Film List</h1>
-                <div style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-between" }}>
+           
+        </div>
+        <div className="grid grid-flow gap-5" >
+                <div style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-between", padding: "1em" }}>
                     {films.map((film) => (
                         <MiniFilm
                             key={film.id}
@@ -113,7 +115,8 @@ const FilmList= () => {
                     ))}
                 </div>
             </div>
-        </div>
+
+        </>
     );
 }
 
