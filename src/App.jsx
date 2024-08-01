@@ -10,6 +10,7 @@ import Home from './assets/pages/Home/Home'
 import Review from './assets/pages/Review/Review'
 import Profile from './assets/pages/Profile/Profile'
 import EditReview from './assets/pages/EditReview/EditReview'
+import AdminPanel from './assets/pages/adminPanel/AdminPanel'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="review" element={<Review />} />
           <Route path="editReview" element={<EditReview />} />
           <Route path="film" element={<Film />} />
+          <Route path="adminPanel" element={<AdminPanel />} />
         </Routes>
       </Layout>
     </BrowserRouter>

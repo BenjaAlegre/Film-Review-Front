@@ -28,3 +28,23 @@ export const getOneData = async (API, ID) => {
     }
 }
 
+export const getPromise = async (API1, API2) =>
+{
+    try {
+        const API1Promise = await fetch(API1)
+        const Api2Promise = await fetch(API2);
+
+        const promises = [API1Promise, Api2Promise];
+        const promisesJson = promises.map(result => result.json());
+
+        const datos = await Promise.all(promisesJson);
+
+        console.log(datos);
+
+        return datos;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
