@@ -28,6 +28,27 @@ export const getOneData = async (API, ID) => {
     }
 }
 
+export const getPosterData = async (API, limit) =>
+{
+    try {
+        const apiUrl = `${API}?limit=${limit}`;
+        
+        const resp = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const data = await resp.json();
+
+        return data;
+    }
+    catch (error) {
+        console.log(error);
+    }
+}
+
 export const getPromise = async (API1, API2, role) => {
 
     try {
