@@ -2,8 +2,11 @@ import { Slide, toast, ToastContainer } from "react-toastify";
 import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
 import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const EditReviewForm = ({ reviewID, title, description, score }) => {
+
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -40,7 +43,8 @@ const EditReviewForm = ({ reviewID, title, description, score }) => {
                 throw new Error("Datos invalidos");
             }
 
-            notifySuccess("Reseña editada!")
+            // notifySuccess("Reseña editada!")
+            navigate(-1);
 
         } catch (error) {
             notifyError("Error: Datos invalidos");
