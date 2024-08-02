@@ -33,14 +33,7 @@ const UserReviewList = ({ userID }) => {
 
                     <UserReview
                         key={review.id}
-                        id={review.id}
-                        title={review.title}
-                        username={review.user.name}
-                        description={review.description}
-                        score={review.score}
-                        filmTitle={review.film.title}
-                        filmRelease={review.film.released}
-                        onReviewDelete={handleReviewChange} />
+                        review={review} />
 
                 ))}
             </div>

@@ -8,25 +8,14 @@ const EditReview = () =>
 {
     const { state } = useLocation();
 
-    const reviewID = state;
-
-    let [review, setReview] = useState([])
-
-    useEffect(() => {
-        getReview()
-    }, [])
-
-    const getReview = async () => {
-        const reviewData = await getOneData(API_PATH_REVIEWS, reviewID)
-        setReview(reviewData);
-    }
+    const review = state;
 
     if (!review) {
         return <div>Loading...</div>
     }
 
     return(
-        <EditReviewForm reviewID={reviewID} title={review.title} description={review.description} score={review.score}/>
+        <EditReviewForm reviewID={review.id} title={review.title} description={review.description} score={review.score}/>
     )
 }
 
