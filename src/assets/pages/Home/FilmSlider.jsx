@@ -44,21 +44,20 @@ const FilmSlider = () => {
 
   return (
     <div id="controls-carousel" className="relative w-full" data-carousel="static">
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
+      <div className="relative h-80 overflow-hidden rounded-lg md:h-[32rem]">
         {items.map((item, index) => (
           <div
             key={index}
-            className={`absolute duration-700 ease-in-out w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${index === currentIndex ? 'block' : 'hidden'
-              }`}
+            className={`absolute duration-700 ease-in-out w-full h-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ${index === currentIndex ? 'block' : 'hidden'}`}
             data-carousel-item={index === currentIndex ? 'active' : ''}
           >
-            <SliderPoster filmID={item.id} src={item.poster}/>
+            <SliderPoster filmID={item.id} src={item.poster} />
           </div>
         ))}
       </div>
       <button
         type="button"
-        className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={handlePrevClick}
         data-carousel-prev
       >
@@ -71,7 +70,7 @@ const FilmSlider = () => {
       </button>
       <button
         type="button"
-        className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         onClick={handleNextClick}
         data-carousel-next
       >

@@ -12,6 +12,7 @@ const SliderPoster = ({filmID, src }) =>
 
       return(
       <img onClick={handlePosterClick} src={src} className="block w-full h-full"/>
+      
       )
 }
 
