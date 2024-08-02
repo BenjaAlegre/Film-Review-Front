@@ -28,16 +28,17 @@ const UserReviewList = ({ userID }) => {
 
     return (
         <>
-            <div className="review-list">
-                {reviews.map((review) => (
 
-                    <UserReview
-                        key={review.id}
-                        review={review}
-                        onReviewDelete={handleReviewChange} />
 
-                ))}
-            </div>
+            <div className="space-y-4">
+            {reviews.map((review) => (
+                <UserReview
+                    key={review.id}
+                    review={review}
+                    onReviewDelete={handleReviewChange}
+                />
+            ))}
+        </div>
         </>
     )
 }

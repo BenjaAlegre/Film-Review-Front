@@ -35,13 +35,17 @@ const Review = () => {
     }
 
     return (
-        <>
+        <div className="max-w-6xl mx-auto p-4">
             <DetailedReview review={review}/>
             <div>
                 {userData?.isLogged && <NewComment review={review.id} onNewComment={handleCommentChange}/>}
                 {review?.comments?.length > 0 && <CommentList review={review}/>}
             </div>
-        </>
+            
+
+
+            
+        </div>
     )
 }
 
