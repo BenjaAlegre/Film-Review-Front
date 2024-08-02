@@ -50,7 +50,7 @@ const Film = () => {
                 {userData?.isLogged && <NewReview film={film.id} addReview={handleReviewAdded} />}
                 {film?.reviews?.length > 0 && (
                     <div className="mt-8">
-                        <h2 className="text-2xl font-semibold mb-4">Featured Review</h2>
+                        <h2 className="text-2xl font-semibold mb-4">Reseña Destacada</h2>
                         <FeaturedReview 
                             reviewID={film.reviews[lastReviewIndex].id} 
                             title={film.reviews[lastReviewIndex].title} 

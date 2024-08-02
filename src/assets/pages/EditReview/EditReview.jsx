@@ -12,7 +12,6 @@ const EditReview = () =>
 
     let [review, setReview] = useState([])
 
-
     useEffect(() => {
         getReview()
     }, [])

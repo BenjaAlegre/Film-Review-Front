@@ -20,7 +20,7 @@ const MiniReview = ({ id, title, description, score, username}) => {
             <h3 className="review-title">{title}</h3>
             <p>{username}</p>
             <p className="review-description">{description}</p>
-            <div className="review-rating">Score: {score} / {MAX_REVIEW_SCORE}</div>
+            <div className="review-rating">Calificación: {score} / {MAX_REVIEW_SCORE}</div>
         </div>
     )
 }
