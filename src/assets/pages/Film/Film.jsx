@@ -19,8 +19,8 @@ const Film = () => {
     let [averageScore, setAverageScore] = useState(0);
 
     useEffect(() => {
-        if(!film)
-        getFilm()
+        if (!film)
+            getFilm()
     }, [film])
 
     const getFilm = async () => {
@@ -44,21 +44,21 @@ const Film = () => {
     const lastReviewIndex = film.reviews.length - 1;
     return (
         <>
-        <div className="max-w-6xl mx-auto p-4">
-            <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} />
-            <div className="mt-8">
-                {userData?.isLogged && <NewReview film={film.id} addReview={handleReviewAdded} />}
-                {film?.reviews?.length > 0 && (
-                    <div className="mt-8">
-                        <h2 className="text-2xl font-semibold mb-4">Reseña Destacada</h2>
-                        <FeaturedReview 
-                            review={film.reviews[lastReviewIndex]} 
-                            film={film} 
-                        />
-                    </div>
-                )}
+            <div className="max-w-6xl mx-auto p-4">
+                <DetailedFilm title={film.title} description={film.description} poster={film.poster} avgScore={averageScore} genres={film.genres}/>
+                <div className="mt-8">
+                    {userData?.isLogged && <NewReview film={film.id} addReview={handleReviewAdded} />}
+                    {film?.reviews?.length > 0 && (
+                        <div className="mt-8">
+                            <h2 className="text-2xl font-semibold mb-4">Reseña Destacada</h2>
+                            <FeaturedReview
+                                review={film.reviews[lastReviewIndex]}
+                                film={film}
+                            />
+                        </div>
+                    )}
+                </div>
             </div>
-        </div>
         </>
     )
 }
