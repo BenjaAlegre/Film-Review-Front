@@ -8,7 +8,7 @@ const DetailedFilm = ({title, description, poster, avgScore}) => (
                 <div className="p-6 md:p-8">
                     <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">{title}</h1>
                     <p className="text-gray-700 dark:text-gray-300 mb-4">{description}</p>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-white">Average Score: {avgScore}</div>
+                    <div className="text-lg font-semibold text-gray-900 dark:text-white">Calificación promedio: {avgScore}</div>
                 </div>
             </div>
         </div>

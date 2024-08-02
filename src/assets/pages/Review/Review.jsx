@@ -30,13 +30,13 @@ const Review = () => {
         getReview();
     }
 
-    if (!review || !review.user) {
+    if (!review){
         return <div>Loading...</div>
     }
 
     return (
         <>
-            <DetailedReview reviewTitle={review.title} reviewDescription={review.description} score={review.score} reviewUser={review.user.name} filmTitle={review.film.title} filmPoster={review.film.poster}/>
+            <DetailedReview review={review}/>
             <div>
                 {userData?.isLogged && <NewComment review={review.id} onNewComment={handleCommentChange}/>}
                 {review?.comments?.length > 0 && <CommentList review={review}/>}

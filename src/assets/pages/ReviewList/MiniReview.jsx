@@ -2,25 +2,24 @@ import { useNavigate } from "react-router-dom"
 import './ReviewList.css';
 import { MAX_REVIEW_SCORE } from "../../common/constants/maxReviewScore.constants";
 
-const MiniReview = ({ id, title, description, score, username}) => {
+const MiniReview = ({ review }) => {
 
     const navigate = useNavigate();
     
     const handleClick = (e) =>
     {
-        console.log(id);
         e.preventDefault();
         navigate('/review',{
-            state: id
+            state: review.id
         })
     }
 
     return (
         <div onClick={handleClick} className="review">
-            <h3 className="review-title">{title}</h3>
-            <p>{username}</p>
-            <p className="review-description">{description}</p>
-            <div className="review-rating">Score: {score} / {MAX_REVIEW_SCORE}</div>
+            <p>{review.user ? review.user.name : 'Deleted user'}</p>
+            <h3 className="review-title">{review.title}</h3>
+            <p className="review-description">{review.description}</p>
+            <div className="review-rating">Calificación: {review.score} / {MAX_REVIEW_SCORE}</div>
         </div>
     )
 }
