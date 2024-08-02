@@ -6,7 +6,7 @@ const Profile = () => {
 
 
     return (
-        <div>
+        <div className="flex justify-center">
             <UserDetails name={userData.name} email={userData.email} role={userData.role} />
             <UserReviewList userID={userData.id} />
         </div>

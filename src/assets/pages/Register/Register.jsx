@@ -1,23 +1,23 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { API_PATH_ROLE } from "../../common/constants/api_path.constants";
+import { getData } from "../../common/utils/getData";
 
 const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [role] = useState('a605ed6d-3096-4e45-8b77-f87f9e6f2de9');
+    //const [role] = useState('a605ed6d-3096-4e45-8b77-f87f9e6f2de9');
     // const [message, setMessage] = useState('');
     const navigate = useNavigate();
-
-
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
+            const roleData = await getData(API_PATH_ROLE + `/User`);  
+            const role = roleData.id;
             
-          const response = await fetch('http://localhost:3000/users', {
+            const response = await fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
