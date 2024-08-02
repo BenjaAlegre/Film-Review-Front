@@ -4,7 +4,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const NewComment = ({ review, onNewComment }) => {
     const userData = JSON.parse(sessionStorage.getItem('user'))
-    const user = userData.id;
 
     const notifySuccess = (message) => toast.success(message)
     const notifyWarning = (warning) => toast.warning(warning)
@@ -28,7 +27,7 @@ const NewComment = ({ review, onNewComment }) => {
                     'Content-Type': 'application/json',
                     'Authorization': sessionStorage.getItem('token'),
                 },
-                body: JSON.stringify({ description, review, user }),
+                body: JSON.stringify({ description, review, user: userData.id }),
             });
 
             console.log(response);

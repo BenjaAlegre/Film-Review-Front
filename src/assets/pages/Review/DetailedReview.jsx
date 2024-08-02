@@ -1,18 +1,13 @@
-import { POSTER_PATH } from "../../common/constants/poster_path.constants";
 import MiniFilm from "../../components/MiniFilm/MiniFilm";
 import MiniReview from "../ReviewList/MiniReview";
 
-const DetailedReview = ({reviewID, reviewTitle, reviewDescription, score, reviewUser, filmTitle, filmPoster, filmID}) => {
+const DetailedReview = ({review}) => {
     return (
         <div>
-            <MiniFilm title={filmTitle} poster={filmPoster} filmID={filmID} />
+            <MiniFilm title={review.film.title} poster={review.film.poster} filmID={review.film.id} />
             <MiniReview
-            key={reviewID}
-            id={reviewID}
-            title={reviewTitle}
-            username={reviewUser}
-            description={reviewDescription}
-            score={score}/>
+            key={review.id}
+            review={review}/>
         </div>
     )
 }

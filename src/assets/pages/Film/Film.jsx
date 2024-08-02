@@ -52,11 +52,7 @@ const Film = () => {
                     <div className="mt-8">
                         <h2 className="text-2xl font-semibold mb-4">Reseña Destacada</h2>
                         <FeaturedReview 
-                            reviewID={film.reviews[lastReviewIndex].id} 
-                            title={film.reviews[lastReviewIndex].title} 
-                            description={film.reviews[lastReviewIndex].description} 
-                            score={film.reviews[lastReviewIndex].score} 
-                            user={film.reviews[lastReviewIndex].user?.name || 'Deleted user'} 
+                            review={film.reviews[lastReviewIndex]} 
                             film={film} 
                         />
                     </div>

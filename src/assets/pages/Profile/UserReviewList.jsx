@@ -33,7 +33,8 @@ const UserReviewList = ({ userID }) => {
 
                     <UserReview
                         key={review.id}
-                        review={review} />
+                        review={review}
+                        onReviewDelete={handleReviewChange} />
 
                 ))}
             </div>

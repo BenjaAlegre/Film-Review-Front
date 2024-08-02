@@ -6,7 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 const NewReview = ({ film, addReview }) => {
 
     const userData = JSON.parse(sessionStorage.getItem('user'));
-    const user = userData.id;
 
     const notifySuccess = (message) => toast.success(message)
     const notifyWarning = (warning) => toast.warning(warning)
@@ -34,7 +33,7 @@ const NewReview = ({ film, addReview }) => {
                     'Content-Type': 'application/json',
                     'Authorization': sessionStorage.getItem('token')
                 },
-                body: JSON.stringify({ title, description, score, film, user }),
+                body: JSON.stringify({ title, description, score, film, user: userData.id }),
             });
 
             console.log(response);
