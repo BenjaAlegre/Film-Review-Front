@@ -1,6 +1,4 @@
-"use client";
 
-import { Table } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { API_PATH_REVIEWS } from "../../common/constants/api_path.constants";
 
@@ -41,12 +39,12 @@ const AdminReviewList = ({ reviews, onReviewDelete }) => {
         <table className="w-full table-fixed">
             <thead>
                 <tr className="bg-gray-100">
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Title</th>
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Description</th>
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Score</th>
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Created At</th>
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Deleted At</th>
-                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Action</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Titulo</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Descripción</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Puntuación</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Creación</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Elimidado</th>
+                    <th className="py-4 px-2 sm:px-4 text-left text-gray-600 font-bold uppercase truncate">Acción</th>
                 </tr>
             </thead>
             <tbody className="bg-white">
@@ -62,12 +60,12 @@ const AdminReviewList = ({ reviews, onReviewDelete }) => {
                                 <button 
                                     onClick={() => handleEdit(review.id)} 
                                     className="px-4 py-2 font-bold text-white rounded bg-yellow-500 hover:bg-yellow-600 text-sm sm:text-base flex-1">
-                                    EDIT
+                                    EDITAR
                                 </button>
                                 <button 
                                     onClick={() => handleDelete(review.id)} 
                                     className="px-4 py-2 font-bold text-white rounded bg-red-500 hover:bg-red-600 text-sm sm:text-base flex-1">
-                                    DELETE
+                                    ELIMINAR
                                 </button>
                             </div>
                         </td>

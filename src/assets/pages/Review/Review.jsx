@@ -31,7 +31,7 @@ const Review = () => {
     }
 
     if (!review){
-        return <div>Loading...</div>
+        return <div>Cargando...</div>
     }
 
     return (

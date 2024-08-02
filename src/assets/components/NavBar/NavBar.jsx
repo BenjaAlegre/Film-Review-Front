@@ -10,13 +10,13 @@ const NavBar = () => {
   const role = userData?.role;
   const handleClick = (path) => {
     navigate(path);
-    setIsOpen(false); // Close the menu when navigating
+    setIsOpen(false);
   };
 
   const handleLogout = () => {
     sessionStorage.clear();
     navigate('/');
-    setIsOpen(false); // Close the menu when logging out
+    setIsOpen(false); 
   };
 
   const toggleMenu = () => {
@@ -69,7 +69,7 @@ const NavBar = () => {
             aria-controls="navbar-cta"
             aria-expanded={isOpen}
           >
-            <span className="sr-only">Open main menu</span>
+            <span className="sr-only">Abrir menú principal</span>
             <svg className="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
               <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 1h15M1 7h15M1 13h15" />
             </svg>
@@ -83,7 +83,7 @@ const NavBar = () => {
                 onClick={() => handleClick('/')}
                 className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
               >
-                Home
+                Inicio
               </a>
             </li>
             <li>

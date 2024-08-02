@@ -49,17 +49,17 @@ const SearchPage = () => {
     return (
         <>
       <div className="max-w-lg mx-auto p-4">
-        <h2 className="text-2xl font-semibold mb-4">Search a Film</h2>
+        <h2 className="text-2xl font-semibold mb-4">Busca una película</h2>
         <form onSubmit={handleSubmitTitle} className="space-y-4">
           <div className="flex flex-col">
-            <label htmlFor="title" className="text-sm font-medium text-gray-700 mb-1">Movie Title</label>
+            <label htmlFor="title" className="text-sm font-medium text-gray-700 mb-1">Título de la película</label>
             <input
               type="text"
               id="title"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               className="p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the movie title"
+              placeholder="Elige el título de la película"
               required
             />
           </div>
@@ -68,20 +68,20 @@ const SearchPage = () => {
             type="submit"
             className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Submit
+            Buscar
           </button>
         </form>
         <form onSubmit={handleSubmitYear} className="space-y-4">
   
           <div className="flex flex-col">
-            <label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1">Release Year</label>
+            <label htmlFor="year" className="text-sm font-medium text-gray-700 mb-1">Año de estreno</label>
             <input
               type="number"
               id="year"
               value={year}
               onChange={(e) => setYear(e.target.value)}
               className="p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-              placeholder="Enter the release year"
+              placeholder="Selecciona el año de estreno"
               required
             />
           </div>
@@ -91,13 +91,13 @@ const SearchPage = () => {
             type="submit"
             className="w-full py-2 px-4 bg-blue-500 text-white font-semibold rounded-md shadow-sm hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
-            Submit
+            Buscar
           </button>
         </form>
         <GenreSelectForm setFilms={setFilms}></GenreSelectForm>
         </div>
         <div>
-        <h1>FILM LIST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1</h1>
+        <h1>LISTADO DE PELICULAS</h1>
         <div style={{ display: "flex", flexFlow: "row wrap", justifyContent: "space-between" }}>
 
             {films.map((film) => (

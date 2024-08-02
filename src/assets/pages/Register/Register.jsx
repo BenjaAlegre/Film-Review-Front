@@ -7,8 +7,7 @@ const Register = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    //const [role] = useState('a605ed6d-3096-4e45-8b77-f87f9e6f2de9');
-    // const [message, setMessage] = useState('');
+
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -73,12 +72,7 @@ const Register = () => {
                             <input id="password" value={password} onChange={(e) => setPassword(e.target.value)}  name="password" type="password" autoComplete="current-password" required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
                         </div>
                     </div>
-                    {/* <div>
-                        <label htmlFor="role" className="block text-sm font-medium leading-6 text-gray-900">Role</label>
-                        <div className="mt-2">
-                            <input type="role" value={role} onChange={(e) => setRole(e.target.value)} id="role" name="role" autoComplete="role"  required className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"/>
-                        </div>
-                    </div> */}
+
 
                     <div>
                         <button type="submit" className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Crear cuenta</button>

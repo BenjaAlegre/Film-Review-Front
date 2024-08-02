@@ -11,7 +11,7 @@ const MiniUser = ({id, name, role}) =>
             <h3>{name}</h3>
             <p>{id}</p>
             <p>{role}</p>
-            <button onSubmit={handleClick}>Delete</button>
+            <button onSubmit={handleClick}>Eliminar</button>
         </div>
     )
 }

@@ -1,4 +1,3 @@
-"use client";
 
 import { API_PATH_RESTOREUSER, API_PATH_USERS } from "../../common/constants/api_path.constants";
 
@@ -39,12 +38,12 @@ const AdminUserList = ({ users, onUserDelete, adminRole }) => {
                 <thead>
                     <tr className="bg-gray-100">
        
-                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Name</th>
-                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Role</th>
+                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Nombre</th>
+                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Rol</th>
                         <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Email</th>
-                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase truncate">Created At</th>
-                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase truncate">Deleted At</th>
-                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Action</th> 
+                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase truncate">Registro</th>
+                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase truncate">Inhabilitado</th>
+                        <th className="w-1/6 py-4 px-6 text-left text-gray-600 font-bold uppercase">Acción</th> 
                     </tr>
                 </thead>
                 <tbody className="bg-white">
@@ -64,7 +63,7 @@ const AdminUserList = ({ users, onUserDelete, adminRole }) => {
                                         }`}
                                         style={{ cursor: 'pointer' }}
                                     >
-                                        {user.deletedAt ? 'RESTORE' : 'DELETE'}
+                                        {user.deletedAt ? 'RESTAURAR' : 'ELIMINAR'}
                                     </button>
                                 )}
                             </td>

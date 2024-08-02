@@ -31,7 +31,7 @@ const FilmSlider = () => {
   };
 
   if (!films) {
-    return <div>Loading...</div>
+    return <div>Cargando...</div>
   }
 
   const items = [

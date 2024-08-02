@@ -38,7 +38,7 @@ const Film = () => {
     };
 
     if (!film) {
-        return <div>Loading...</div>
+        return <div>Cargando...</div>
     }
 
     const lastReviewIndex = film.reviews.length - 1;

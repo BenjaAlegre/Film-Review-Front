@@ -89,7 +89,7 @@ const FilmList= () => {
                             value={searchValue}
                             onChange={(e) => setSearchValue(e.target.value)}
                             className="p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder={`Introduce el ${searchType === 'title' ? 'título' : 'año de estreno'}`}
+                            placeholder={`Introducir el ${searchType === 'title' ? 'título' : 'año de estreno'}`}
                             required
                         />
                     </div>
