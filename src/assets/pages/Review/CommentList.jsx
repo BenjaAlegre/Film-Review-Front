@@ -1,12 +1,14 @@
+import '../ReviewList/ReviewList.css';
+
 const CommentList = ({review}) => {
     console.log(review)
     return (
         <>
-            <div>
+            <div className='review'>
                 {review.comments.map((comment) => (
                     <div key={comment.id}>
-                        <p>{comment.user.name}</p>
-                        <p>{comment.description}</p>
+                        <p className='review-title'>{comment.user.name}</p>
+                        <p className='review-description'>{comment.description}</p>
                     </div>
                 ))}
             </div>
