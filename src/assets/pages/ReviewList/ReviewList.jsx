@@ -10,25 +10,7 @@ const ReviewList = () => {
 
   const { state } = useLocation();
 
-  console.log({ state });
-  console.log(state);
-  const filmID = state;
-  console.log(filmID);
-
-  let [film, setFilm] = useState([])
-
-  useEffect(() => {
-    getFilm()
-  }, [])
-
-  const getFilm = async () => {
-    const filmData = await getOneData(API_PATH_FILMS, filmID)
-    setFilm(filmData);
-  }
-
-  if (!film || !film.reviews) {
-    return <div>Loading...</div>
-  }
+  const film = state;
 
   return (
     <>

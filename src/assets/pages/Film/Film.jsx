@@ -57,7 +57,7 @@ const Film = () => {
                             description={film.reviews[lastReviewIndex].description} 
                             score={film.reviews[lastReviewIndex].score} 
                             user={film.reviews[lastReviewIndex].user?.name || 'Deleted user'} 
-                            filmID={film.id} 
+                            film={film} 
                         />
                     </div>
                 )}

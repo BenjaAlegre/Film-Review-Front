@@ -10,10 +10,6 @@ const EditReview = () =>
 
     const review = state;
 
-    if (!review) {
-        return <div>Loading...</div>
-    }
-
     return(
         <EditReviewForm reviewID={review.id} title={review.title} description={review.description} score={review.score}/>
     )

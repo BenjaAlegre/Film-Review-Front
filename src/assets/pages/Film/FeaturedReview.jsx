@@ -1,16 +1,15 @@
 import { useNavigate } from "react-router-dom";
 import MiniReview from "../ReviewList/MiniReview";
 
-const FeaturedReview = ({ reviewID, title, description, score, user, filmID }) => {
+const FeaturedReview = ({ reviewID, title, description, score, user, film }) => {
 
     const navigate = useNavigate();
 
     const handleClick = (e) => {
 
-        console.log(filmID);
         e.preventDefault();
         navigate('/reviewList', {
-            state: filmID
+            state: film
         })
 
     }
