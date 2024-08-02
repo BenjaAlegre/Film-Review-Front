@@ -37,7 +37,7 @@ const Film = () => {
         getFilm();
     };
 
-    if (!film) {
+    if (!film || !film.genres) {
         return <div>Cargando...</div>
     }
 
