@@ -17,8 +17,8 @@ const MiniReview = ({ id, title, description, score, username}) => {
 
     return (
         <div onClick={handleClick} className="review">
-            <h3 className="review-title">{title}</h3>
             <p>{username}</p>
+            <h3 className="review-title">{title}</h3>
             <p className="review-description">{description}</p>
             <div className="review-rating">Calificación: {score} / {MAX_REVIEW_SCORE}</div>
         </div>
