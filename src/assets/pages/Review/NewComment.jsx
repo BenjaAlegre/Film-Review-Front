@@ -18,7 +18,7 @@ const NewComment = ({review, onNewComment}) =>
                     'Content-Type': 'application/json',
                     'Authorization': sessionStorage.getItem('token'),
                 },
-                body: JSON.stringify({ title, description, review, user }),
+                body: JSON.stringify({ description, review, user }),
             });
 
             console.log(response);
@@ -36,11 +36,14 @@ const NewComment = ({review, onNewComment}) =>
 
     return (
         <>
-            <h3>Leave a comment!</h3>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="description"></label>
-                <input type="text" name="description" />
-                <button>submit!</button>
+            <h3 className="text-center text-3xl font-bold :text-white m-2">Deja tu comentario!</h3>
+
+            <form onSubmit={handleSubmit} className="max-w-sm mx-auto">
+                <div className="mb-5">
+                    <label htmlFor="large-input" className="block mb-2 text-sm font-medium text-gray-900 :text-white"></label>
+                    <input type="text" id="large-input" name="description" className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 :bg-gray-700 :border-gray-600 :placeholder-gray-400 :text-white :focus:ring-blue-500 :focus:border-blue-500"/>
+                </div>
+                <button type="submit" className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Enviar</button>
             </form>
         </>
     )
