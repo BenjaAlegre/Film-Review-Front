@@ -6,19 +6,38 @@ import Register from './assets/pages/Register/Register'
 import FilmList from './assets/pages/FilmList/FilmList'
 import ReviewList from './assets/pages/ReviewList/ReviewList'
 import Film from './assets/pages/Film/Film'
+import Home from './assets/pages/Home/Home'
+import Review from './assets/pages/Review/Review'
+import Profile from './assets/pages/Profile/Profile'
+import EditReview from './assets/pages/EditReview/EditReview'
+import AdminPanel from './assets/pages/adminPanel/AdminPanel'
+import Unauthorized from './assets/pages/Unauthorized/Unauthorized'
+import RoleAccess from './assets/common/utils/RoleAccess'
+import NotFound from './assets/pages/NotFound/NotFound'
 
 function App() {
-  return(
+
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route path="login" element={<Login/>}/>
-          <Route path="register" element={<Register/>}/>
-          <Route path="filmList" element={<FilmList/>}/>
-          <Route path="reviewList" element={<ReviewList/>}/>
-          <Route path="film" element={<Film/>}/>
-        </Route>
-      </Routes>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="login" element={<Login />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="register" element={<Register />} />
+          <Route path="filmList" element={<FilmList />} />
+          <Route path="reviewList" element={<ReviewList />} />
+          <Route path="review" element={<Review />} />
+          <Route path="editReview" element={<EditReview />} />
+          <Route path="film" element={<Film />} />
+          <Route element={<RoleAccess />}>
+            <Route path="adminPanel" element={<AdminPanel />} />
+          </Route>
+          <Route path="unauthorized" element={<Unauthorized />} />
+          <Route path="*" element={<NotFound />} />
+
+        </Routes>
+      </Layout>
     </BrowserRouter>
   )
 }

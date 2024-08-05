@@ -1,47 +1,35 @@
+import { useLocation } from 'react-router-dom';
 import './ReviewList.css';
-
-const reviews = [
-  {
-    title: "Great Product",
-    description: "I really enjoyed using this product. It exceeded my expectations in every way.",
-    rating: 5
-  },
-  {
-    title: "Good Value",
-    description: "This product offers good value for the price. I would recommend it to others.",
-    rating: 4
-  },
-  {
-    title: "Average Experience",
-    description: "The product is okay, but it did not meet all my expectations.",
-    rating: 3
-  },{
-    title: "Great Product",
-    description: "I really enjoyed using this product. It exceeded my expectations in every way.",
-    rating: 5
-  },
-  {
-    title: "Good Value",
-    description: "This product offers good value for the price. I would recommend it to others.",
-    rating: 4
-  },
-  {
-    title: "Average Experience",
-    description: "The product is okay, but it did not meet all my expectations.",
-    rating: 3
-  },
-];
+import MiniFilm from '../../components/MiniFilm/MiniFilm';
+import MiniReview from './MiniReview';
 
 const ReviewList = () => {
+
+  const { state } = useLocation();
+
+  const film = state;
+
   return (
-    <div className="review-list">
-      {reviews.map((review, index) => (
-        <div className="review" key={index}>
-          <h3 className="review-title">{review.title}</h3>
-          <p className="review-description">{review.description}</p>
-          <div className="review-rating">Rating: {review.rating} / 5</div>
+    
+    <div className="max-w-6xl mx-auto p-4">
+       <div className="mb-4 md:mb-0">
+          <MiniFilm title={film.title} poster={film.poster} filmID={film.id} />
         </div>
-      ))}
+      <div className="flex flex-col md:flex-row md:space-x-6">
+       
+        <div className="flex-grow">
+          <h2 className="text-2xl font-bold mb-4 text-gray-900 dark:text-white">Reviews</h2>
+          <div className="space-y-4">
+            {film.reviews.length > 0 ? (
+              film.reviews.map((review) => (
+                <MiniReview key={review.id} review={review} />
+              ))
+            ) : (
+              <p className="text-gray-700 dark:text-gray-300">No reviews available.</p>
+            )}
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
